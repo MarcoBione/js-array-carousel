@@ -51,23 +51,37 @@ console.log(imgContainer.length);
 //initialize slider
 const slider = document.querySelector('.slider');
 
+//selector
+const selector = document.querySelector('.selector');
+
 //create element for html
 let carousel = '';
+let imgColumSelector ='';
 let currentCounter = 0;
 
 //stamp cycle
 for(let i = 0; i < imgContainer.length; i++){
     carousel += `
-    <div class="img-box text-end">
+    <div class="img-box">
+        <img src="./${imgContainer[i]}" alt="character">
+    </div>
+    `
+    imgColumSelector += `
+    <div class="imgs opacity-25">
         <img src="./${imgContainer[i]}" alt="character">
     </div>
     `
 }
 
-//stamp in html document
+//stamp in html element w/class slider
 slider.innerHTML += carousel;
+
+//stamp in html element w/class selector
+selector.innerHTML += imgColumSelector;
+
 //add active class to img
 document.querySelectorAll('.img-box')[currentCounter].classList.add('d-block');
+document.querySelectorAll('.imgs')[currentCounter].classList.add('opacity-100');
 
 //add button listener
 const nextImg = document.querySelector('.next');
