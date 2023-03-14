@@ -14,3 +14,11 @@
     display: flex;
     justify-content: space-between;
 }
+
+.slider{
+    width: calc(100% / 2);
+}
+
+.img-box img{
+    height: 300px;
+}
