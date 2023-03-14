@@ -36,3 +36,51 @@ template html
 </div>
 `
 */
+
+//img array
+
+let imgContainer = [
+    'img/01.webp', //0
+    'img/02.webp', //1
+    'img/03.webp', //2
+    'img/04.webp', //3
+    'img/05.webp', //4
+];
+console.log(imgContainer.length);
+
+//initialize slider
+const slider = document.querySelector('.slider');
+
+//create element for html
+let carousel = '';
+let currentCounter = 0;
+
+//stamp cycle
+for(let i = 0; i < imgContainer.length; i++){
+    carousel += `
+    <div class="img-box">
+        <img src="./${imgContainer[i]}" alt="character">
+    </div>
+    `
+}
+
+//stamp in html document
+slider.innerHTML += carousel;
+//add active class to img
+document.querySelectorAll('.img-box')[currentCounter].classList.add('d-block');
+
+//add button listener
+const nextImg = document.querySelector('.next');
+const prevImg = document.querySelector('.prev');
+
+//click listener
+nextImg.addEventListener('click', goNext);
+prevImg.addEventListener('click', goPrev);
+
+
+
+
+
+
+
+
