@@ -58,7 +58,7 @@ let currentCounter = 0;
 //stamp cycle
 for(let i = 0; i < imgContainer.length; i++){
     carousel += `
-    <div class="img-box">
+    <div class="img-box text-end">
         <img src="./${imgContainer[i]}" alt="character">
     </div>
     `
