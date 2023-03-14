@@ -67,7 +67,7 @@ for(let i = 0; i < imgContainer.length; i++){
     </div>
     `
     imgColumSelector += `
-    <div class="imgs opacity-25">
+    <div class="imgs opacity-25 border border-light">
         <img src="./${imgContainer[i]}" alt="character">
     </div>
     `
