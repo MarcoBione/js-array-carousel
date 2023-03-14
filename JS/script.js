@@ -74,7 +74,10 @@ const nextImg = document.querySelector('.next');
 const prevImg = document.querySelector('.prev');
 
 //click listener
+//next img
 nextImg.addEventListener('click', goNext);
+
+//previous img
 prevImg.addEventListener('click', goPrev);
 
 
