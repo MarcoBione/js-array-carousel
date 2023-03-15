@@ -21,18 +21,24 @@
 
 .selector{
     width: 200px;
+    height: 100%;
 }
 
 .img-box{
     display: none;
+    height: 100%;
 }
 
 .img-box img{
-    height: 300px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .imgs img{
-    height: 50px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 button{
