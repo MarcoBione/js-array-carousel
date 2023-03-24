@@ -35,3 +35,7 @@ function goPrev(){
     //add opacity 100
     document.querySelectorAll('.imgs')[currentCounter].classList.add('opacity-100');
 }
+
+// function startCarouselSlider(goNext){
+    //let myCarousel = setInterval(goNext, 1000);
+//}

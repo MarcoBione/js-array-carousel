@@ -36,63 +36,126 @@ template html
 </div>
 `
 */
+function myCarousel() {
 
-//img array
+    //next img
+    function goNext() {
+        //remove d-block from previous img
+        document.querySelectorAll('.img-box')[currentCounter].classList.remove('d-block');
+        //remove opacity 100
+        document.querySelectorAll('.imgs')[currentCounter].classList.remove('opacity-100');
 
-let imgContainer = [
-    'img/01.webp', //0
-    'img/02.webp', //1
-    'img/03.webp', //2
-    'img/04.webp', //3
-    'img/05.webp', //4
-];
-console.log(imgContainer.length);
+        if (currentCounter === imgContainer.length - 1) {
+            currentCounter = 0;
+        } else {
+            currentCounter++;
+        }
 
-//initialize slider
-const slider = document.querySelector('.slider');
+        //add d-block from previous img
+        document.querySelectorAll('.img-box')[currentCounter].classList.add('d-block');
+        //add opacity 100
+        document.querySelectorAll('.imgs')[currentCounter].classList.add('opacity-100');
+    }
 
-//selector
-const selector = document.querySelector('.selector');
+    //previous img
+    function goPrev() {
+        //remove d-block from previous img
+        document.querySelectorAll('.img-box')[currentCounter].classList.remove('d-block');
+        //remove opacity 100
+        document.querySelectorAll('.imgs')[currentCounter].classList.remove('opacity-100');
 
-//create element for html
-let carousel = '';
-let imgColumSelector ='';
-let currentCounter = 0;
+        if (currentCounter === 0) {
+            currentCounter = imgContainer.length - 1;
+        } else {
+            currentCounter--;
+        }
 
-//stamp cycle
-for(let i = 0; i < imgContainer.length; i++){
-    carousel += `
+        //add d-block from previous img
+        document.querySelectorAll('.img-box')[currentCounter].classList.add('d-block');
+        //add opacity 100
+        document.querySelectorAll('.imgs')[currentCounter].classList.add('opacity-100');
+    }
+
+    function startSlider() {
+        let startCarouselSlider = setInterval(goNext, 1000);
+    }
+
+    function stopSlider() {
+        let startCarouselSlider = clearInterval(goNext);
+    }
+
+    //img array
+    let imgContainer = [
+        'img/01.webp', //0
+        'img/02.webp', //1
+        'img/03.webp', //2
+        'img/04.webp', //3
+        'img/05.webp', //4
+    ];
+    //console.log(imgContainer.length);
+
+    //initialize slider
+    const slider = document.querySelector('.slider');
+
+    //selector
+    const selector = document.querySelector('.selector');
+
+    //create element for html
+    let carousel = '';
+    let imgColumSelector = '';
+    let currentCounter = 0;
+
+    //stamp cycle
+    for (let i = 0; i < imgContainer.length; i++) {
+        carousel += `
     <div class="img-box">
         <img src="./${imgContainer[i]}" alt="character">
     </div>
     `
-    imgColumSelector += `
+        imgColumSelector += `
     <div class="imgs opacity-25 border border-light">
         <img src="./${imgContainer[i]}" alt="character">
     </div>
     `
+    }
+
+    //stamp in html element w/class slider
+    slider.innerHTML += carousel;
+
+    //stamp in html element w/class selector
+    selector.innerHTML += imgColumSelector;
+
+    //add active class to img
+    document.querySelectorAll('.img-box')[currentCounter].classList.add('d-block');
+    document.querySelectorAll('.imgs')[currentCounter].classList.add('opacity-100');
+
+    //add button listener
+    const nextImg = document.querySelector('.next');
+    const prevImg = document.querySelector('.prev');
+
+    //click listener
+    //next img
+    nextImg.addEventListener('click', goNext);
+
+    //previous img
+    prevImg.addEventListener('click', goPrev);
+
+    //const start = slider.addEventListener('mouseout', startSlider);
+    //slider.addEventListener('mouseover', startSlider);
+
+
 }
 
-//stamp in html element w/class slider
-slider.innerHTML += carousel;
 
-//stamp in html element w/class selector
-selector.innerHTML += imgColumSelector;
+myCarousel();
 
-//add active class to img
-document.querySelectorAll('.img-box')[currentCounter].classList.add('d-block');
-document.querySelectorAll('.imgs')[currentCounter].classList.add('opacity-100');
 
-//add button listener
-const nextImg = document.querySelector('.next');
-const prevImg = document.querySelector('.prev');
 
-//click listener
-//next img
-nextImg.addEventListener('click', goNext);
 
-//previous img
-prevImg.addEventListener('click', goPrev);
+
+
+
+
 
 
 
